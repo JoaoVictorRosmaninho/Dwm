@@ -57,17 +57,21 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* Command Menu */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2]   = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *menu[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *menu[]  = { "rofi", "-show", "drun", "-show-emojis", NULL };
 
 /* Terminal */
 static const char *termcmd[]  = { "st", NULL };
 
+/* File manager */
+static const char *file_manager[] = { "thunar", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = menu } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = file_manager } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
