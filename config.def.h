@@ -65,7 +65,7 @@ static const char *menu[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-n
 static const char *termcmd[]  = { "st", NULL };
 
 /* File manager */
-static const char *file_manager[] = { "thunar", "2>", "/dev/null", NULL };
+static const char *file_manager[] = { "thunar", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
